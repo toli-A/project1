@@ -3,11 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Task Tracker</title>
+   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <script src="./assets/javascript/script.js"></script>
+    <header>
+        <h1>Task Tracker</h1>
+        <div class="add-task">
+            <a href="add-task.html">Add New Task</a>
+        </div>
+    </header>
+    
+    <div class="options">
+        <button onclick="showAllTasks()">All Tasks</button>
+        <button onclick="showSchoolTasks()">School Tasks</button>
+        <button onclick="showHomeTasks()">Home Tasks</button>
+        <button onclick="showWorkTasks()">Work Tasks</button>
+    </div>
+    
+    <div id="taskList">
+        <!-- Tasks will be displayed here -->
+    </div>
+    
+    <div class="description">
+        <h3>About Task Tracker</h3>
+        <p>Task Tracker is a simple web application that helps you organize and manage your tasks across different categories such as school, home, and work. You can easily add new tasks, view all tasks, or filter tasks by category to stay organized and productive.</p>
+    </div>
+
+    <script>
+        function addNewTask() {
+            alert("Add New Task functionality will be implemented here.");
+        }
+
+        function showAllTasks() {
+            document.getElementById("taskList").innerHTML = "<p>All tasks will be displayed here.</p>";
+        }
+
+        function showSchoolTasks() {
+            document.getElementById("taskList").innerHTML = "<p>School tasks will be displayed here.</p>";
+        }
+
+        function showHomeTasks() {
+            document.getElementById("taskList").innerHTML = "<p>Home tasks will be displayed here.</p>";
+        }
+
+        function showWorkTasks() {
+            document.getElementById("taskList").innerHTML = "<p>Work tasks will be displayed here.</p>";
+        }
+    </script>
 </body>
 </html>
