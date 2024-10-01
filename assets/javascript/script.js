@@ -31,3 +31,16 @@ if (workButton) {
 workButton.addEventListener ('click', function() {
         redirectPage("./work-tasks.html");
 })}
+
+// modal dialog
+const dialog = document.querySelector("dialog");
+const addNewTaskButton = document.getElementById("add-new-task-button");
+const cancelButton = document.querySelector("dialog button");
+
+addNewTaskButton.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+cancelButton.addEventListener("click", () => {
+    dialog.close();
+});
