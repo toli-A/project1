@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Task Tracker</title>
-   <link rel="stylesheet" href="styles.css">
    <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -18,23 +17,22 @@
         </div>
     </header>
     
-    <script src="./assets/javascript/script.js"></script>
     <ul class="nav nav-pills nav-fill">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Work</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">School</a>
-      </li>
+        <li class="nav-item">
+            <a class="nav-link active" id="homeButton" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="workButton" href="#">Work</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="school-button" href="#">School</a>
+        </li>
     </ul>
     <div class="options"></div>
-        <button onclick="showAllTasks()">All Tasks</button>
-        <button onclick="showSchoolTasks()">School Tasks</button>
-        <button onclick="showHomeTasks()">Home Tasks</button>
-        <button onclick="showWorkTasks()">Work Tasks</button>
+    <button onclick="showAllTasks()">All Tasks</button>
+    <button onclick="showSchoolTasks()">School Tasks</button>
+    <button onclick="showHomeTasks()">Home Tasks</button>
+    <button onclick="showWorkTasks()">Work Tasks</button>
     </div>
     
     <div id="taskList">
@@ -45,16 +43,16 @@
         <h3>About Task Tracker</h3>
         <p>Task Tracker is a simple web application that helps you organize and manage your tasks across different categories such as school, home, and work. You can easily add new tasks, view all tasks, or filter tasks by category to stay organized and productive.</p>
     </div>
-
+    
     <script>
         function addNewTask() {
             alert("Add New Task functionality will be implemented here.");
         }
-
+        
         function showAllTasks() {
             document.getElementById("taskList").innerHTML = "<p>All tasks will be displayed here.</p>";
         }
-
+        
         function showSchoolTasks() {
             document.getElementById("taskList").innerHTML = "<p>School tasks will be displayed here.</p>";
         }
@@ -62,11 +60,12 @@
         function showHomeTasks() {
             document.getElementById("taskList").innerHTML = "<p>Home tasks will be displayed here.</p>";
         }
-
+        
         function showWorkTasks() {
             document.getElementById("taskList").innerHTML = "<p>Work tasks will be displayed here.</p>";
         }
-    </script>
+        </script>
+<script src="./assets/javascript/script.js"></script>
 
 </body>
 </html>
