@@ -5,47 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Task Tracker</title>
-   <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+
 <body>
     <header>
         <h1>Task Tracker</h1>
-        <div class="add-task">
-            <a href="add-task.html">Add New Task</a>
-        </div>
+        <button id="add-new-task-button">Add New Task...</button>
     </header>
     
-    <ul class="nav nav-pills nav-fill">
-        <li class="nav-item">
-            <a class="nav-link " id="all-button" href="#">All</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="home-button" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="work-button" href="#">Work</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="school-button" href="#">School</a>
-        </li>
-    </ul>
-    <div class="options"></div>
-    <button onclick="showAllTasks()">All Tasks</button>
-    <button onclick="showSchoolTasks()">School Tasks</button>
-    <button onclick="showHomeTasks()">Home Tasks</button>
-    <button onclick="showWorkTasks()">Work Tasks</button>
-    </div>
-    
-    <div id="taskList">
-        <!-- Tasks will be displayed here -->
-    </div>
-    
-    <div class="description">
-        <h3>About Task Tracker</h3>
-        <p>Task Tracker is a simple web application that helps you organize and manage your tasks across different categories such as school, home, and work. You can easily add new tasks, view all tasks, or filter tasks by category to stay organized and productive.</p>
-    </div>
+    <main>
+        <dialog>
+            <form method="dialog">
+                <div class="add-new-task-dialog">
+                    <label for="task">Task:</label>
+                    <textarea id="task" name="task" rows="5"></textarea>
+
+                    <label for="due-date">Due Date:</label>
+                    <input type="date" id="due-date" name="due-date" />
+
+                    <label for="category">Category:</label>
+                    <select id="category" name="category" >
+                        <option value="school">School</option>
+                        <option value="work">Work</option>
+                        <option value="home">Home</option>
+                    </select>
+                </div>
+                <div class="dialog-buttons">
+                    <button method="dialog" autofocus>Cancel</button>
+                    <input type="submit" id="submit-task" name="submit-task" method="dialog" value="Add Task" />
+                </div>
+            </form>
+        </dialog>
+        <ul class="nav nav-pills nav-fill">
+            <li class="nav-item">
+                <a class="nav-link " id="all-button" href="#">All</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="home-button" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="work-button" href="#">Work</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="school-button" href="#">School</a>
+            </li>
+        </ul>
+        <div class="options"></div>
+        <button onclick="showAllTasks()">All Tasks</button>
+        <button onclick="showSchoolTasks()">School Tasks</button>
+        <button onclick="showHomeTasks()">Home Tasks</button>
+        <button onclick="showWorkTasks()">Work Tasks</button>
+        </div>
+        
+        <div id="taskList">
+            <!-- Tasks will be displayed here -->
+        </div>
+        
+        <div class="description">
+            <h3>About Task Tracker</h3>
+            <p>Task Tracker is a simple web application that helps you organize and manage your tasks across different categories such as school, home, and work. You can easily add new tasks, view all tasks, or filter tasks by category to stay organized and productive.</p>
+        </div>
+    </main>
+
+    <footer>
+    </footer>
     
     <script>
         function addNewTask() {
