@@ -13,20 +13,21 @@ function redirectPage(url) {
 //backButton redirects to the Homepage atm//
 if(backButton) {
     backButton.addEventListener('click', function() {
-    redirectPage("./index.html");
+        redirectPage("./index.html");
 })}
-
-allButton.addEventListener('click', function() {
-    redirectPage("./all.html");
-})
-
-schoolButton.addEventListener('click', function() {
-    redirectPage("./school.html");
-})
+if (allButton) {
+    allButton.addEventListener('click', function() {
+        redirectPage("./all-tasks.html");
+})}
+if(schoolButton) {
+    schoolButton.addEventListener('click', function() {
+        redirectPage("./school-tasks.html");
+})}
+if (homeButton) {
 homeButton.addEventListener ('click', function() {
-    redirectPage("./home.html");
-})
-
+        redirectPage("./home-tasks.html");
+})}
+if (workButton) {
 workButton.addEventListener ('click', function() {
-    redirectPage("./work.html");
-})
+        redirectPage("./work-tasks.html");
+})}
