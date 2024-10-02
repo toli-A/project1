@@ -69,3 +69,8 @@ function submitForm() {
 if (form) {
 form.addEventListener("submit", submitForm);
 };
+
+function themeSwitcher () {
+    let element = document.body;
+    element.classList.toggle("dark-mode");
+}

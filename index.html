@@ -6,14 +6,15 @@
 
     <title>Task Tracker</title>
     <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
     <header>
         <h1>Task Tracker</h1>
-        <button id="add-new-task-button" class="btn btn-primary">Add New Task...</button>
+        <button class="btn btn-dark"  onclick="themeSwitcher()">Toggle Dark Mode</button>
+        <button id="add-new-task-button" class="btn btn-dark">Add New Task...</button>
     </header>
     
     <main>
@@ -61,8 +62,8 @@
         </div>
         
         <div class="description">
-            <h3>About Task Tracker</h3>
-            <p>Task Tracker is a simple web application that helps you organize and manage your tasks across different categories such as school, home, and work. You can easily add new tasks, view all tasks, or filter tasks by category to stay organized and productive.</p>
+            <h3 class="text-center">About Task Tracker</h3>
+            <p class="text-center">Task Tracker is a simple web application that helps you organize and manage your tasks across different categories such as school, home, and work. You can easily add new tasks, view all tasks, or filter tasks by category to stay organized and productive.</p>
         </div>
     </main>
 
