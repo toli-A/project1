@@ -18,16 +18,16 @@
 
     <main>
         <dialog id="allTasks">
-            <form method="dialog">
+            <form method="dialog" id="all-tasks-form">
                 <div class="add-new-task-dialog">
-                    <label for="task">Task:</label>
-                    <textarea id="task" name="task" rows="5" required></textarea>
+                    <label for="all-task">Task:</label>
+                    <textarea id="all-task" name="all-task" rows="5" required></textarea>
 
-                    <label for="due-date">Due Date:</label>
-                    <input type="date" id="due-date" name="due-date" required />
+                    <label for="all-due-date">Due Date:</label>
+                    <input type="date" id="all-due-date" name="all-due-date" required />
 
-                    <label for="category">Category:</label>
-                    <select id="category" name="category" >
+                    <label for="all-category">Category:</label>
+                    <select id="all-category" name="all-category" >
                         <option value="school">School</option>
                         <option value="work">Work</option>
                         <option value="home">Home</option>
@@ -73,7 +73,6 @@
         <p>©2024 Second Fragment Software</p>
     </footer>
     <script src="./assets/javascript/script.js"></script>
-    <script src="./assets/javascript/logic.js"></script>
     <script src="./assets/javascript/all-tasks.js"></script>
 </body>
 </html>

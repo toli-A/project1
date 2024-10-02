@@ -1,4 +1,4 @@
-// append home tasks
+// append work tasks
 function appendTask(eachTask) {
     const tableBody = document.querySelector("tbody");
     const newTableRow = document.createElement("tr");
@@ -9,7 +9,6 @@ function appendTask(eachTask) {
     const newRemoveCell = document.createElement("td");
     const newRemoveButton = document.createElement("button");
     const currentIndex = allTasks.indexOf(eachTask);
-    console.log(currentIndex);
 
     tableBody.appendChild(newTableRow);
     newTableRow.appendChild(newTaskCell);
@@ -26,13 +25,11 @@ function appendTask(eachTask) {
         allTasks.splice(currentIndex, 1);
         newTableRow.remove();
         storeLocalStorage();
-        console.log(allTasks);
     });
 };
 
 function renderTasks() {
     readLocalStorage();
-    console.log(allTasks);
     for (const eachTask of allTasks) {
         if (eachTask.category === "work") {
             appendTask(eachTask);
@@ -41,3 +38,24 @@ function renderTasks() {
 };
 
 renderTasks();
+
+// submitting the form
+const workForm = document.getElementById("work-form");
+const workTaskField = document.getElementById("work-task");
+const workDateField = document.getElementById("work-due-date");
+
+function submitWorkForm() {
+    const taskSubmission = {
+        task: workTaskField.value,
+        date: workDateField.value,
+        category: "work",
+    };
+    readLocalStorage();
+    allTasks.push(taskSubmission);
+    storeLocalStorage();
+    appendTask(taskSubmission);
+};
+
+if (workForm) {
+workForm.addEventListener("submit", submitWorkForm);
+};
