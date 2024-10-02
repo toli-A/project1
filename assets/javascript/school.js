@@ -1,8 +1,7 @@
-// append all tasks
+// append home tasks
 function appendTask(eachTask) {
     const tableBody = document.querySelector("tbody");
     const newTableRow = document.createElement("tr");
-    const newCategoryCell = document.createElement("td");
     const newTaskCell = document.createElement("td");
     const newDateCell = document.createElement("td");
     let newDate = document.createElement("input");
@@ -13,14 +12,12 @@ function appendTask(eachTask) {
     console.log(currentIndex);
 
     tableBody.appendChild(newTableRow);
-    newTableRow.appendChild(newCategoryCell);
     newTableRow.appendChild(newTaskCell);
     newTableRow.appendChild(newDateCell);
     newDateCell.appendChild(newDate);
     newTableRow.appendChild(newRemoveCell);
     newRemoveCell.appendChild(newRemoveButton);
 
-    newCategoryCell.textContent = eachTask.category;
     newTaskCell.textContent = eachTask.task;
     newDate.value = eachTask.date;
     newRemoveButton.textContent = "—";
@@ -37,7 +34,9 @@ function renderTasks() {
     readLocalStorage();
     console.log(allTasks);
     for (const eachTask of allTasks) {
-        appendTask(eachTask);
+        if (eachTask.category === "school") {
+            appendTask(eachTask);
+        }
     }
 };
 
