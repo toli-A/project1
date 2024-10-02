@@ -37,13 +37,15 @@ const dialog = document.querySelector("dialog");
 const addNewTaskButton = document.getElementById("add-new-task-button");
 const cancelButton = document.querySelector("dialog button");
 
+if (addNewTaskButton) {
 addNewTaskButton.addEventListener("click", () => {
     dialog.showModal();
-});
+})};
 
+if (cancelButton) {
 cancelButton.addEventListener("click", () => {
     dialog.close();
-});
+})};
 
 // submitting the form
 const form = document.querySelector("form");
@@ -64,4 +66,6 @@ function submitForm() {
     console.log(allTasks);
 };
 
+if (form) {
 form.addEventListener("submit", submitForm);
+};
