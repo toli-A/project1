@@ -36,7 +36,29 @@ workButton.addEventListener ('click', function() {
 const dialog = document.querySelector("dialog");
 const addNewTaskButton = document.getElementById("add-new-task-button");
 const cancelButton = document.querySelector("dialog button");
+const addNewHomeTask = document.getElementById("homeTask");
+const addNewWorkTask = document.getElementById("workTask");
+const addNewSchoolTask = document.getElementById("schoolTask");
+const addNewAllTask = document.getElementById("addAllTask");
+if (addNewAllTask) {
+    addNewAllTask.addEventListener("click", () => {
+        dialog.showModal();
+    })};
 
+if (addNewSchoolTask) {
+    addNewSchoolTask.addEventListener("click", () => {
+        dialog.showModal();
+    })};
+
+if (addNewWorkTask) {
+    addNewWorkTask.addEventListener("click", () => {
+        dialog.showModal();
+    })};
+
+if (addNewHomeTask) {
+    addNewHomeTask.addEventListener("click", () => {
+        dialog.showModal();
+    })};
 if (addNewTaskButton) {
 addNewTaskButton.addEventListener("click", () => {
     dialog.showModal();

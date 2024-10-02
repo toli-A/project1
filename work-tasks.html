@@ -17,6 +17,23 @@
     </header>
 
     <main>
+        <dialog id="workDialog">
+            <form method="dialog">
+                <div class="add-new-task-dialog">
+                    <label for="task">Task:</label>
+                    <textarea id="task" name="task" rows="5"></textarea>
+
+                    <label for="due-date">Due Date:</label>
+                    <input type="date" id="due-date" name="due-date" />
+
+
+                </div>
+                <div class="dialog-buttons">
+                    <button method="dialog" autofocus>Cancel</button>
+                    <input type="submit" id="submit-task" name="submit-task" method="dialog" value="Add Task" />
+                </div>
+            </form>
+        </dialog>
         <ul class="nav nav-pills nav-fill">
             <li class="nav-item">
                 <a class="nav-link " id="all-button" href="#">All</a>
