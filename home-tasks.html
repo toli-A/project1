@@ -13,10 +13,28 @@
     <header>
         <button class="btn btn-secondary" id="back-button">Back</button>
         <h1>Home Tasks</h1>
-        <button id ="workTask" class="btn btn-secondary">Add New Home Task</button>
+        <button id ="homeTask" class="btn btn-secondary">Add New Home Task</button>
+
     </header>
 
     <main>
+        <dialog id="homeDialog">
+            <form method="dialog">
+                <div class="add-new-task-dialog">
+                    <label for="task">Task:</label>
+                    <textarea id="task" name="task" rows="5"></textarea>
+
+                    <label for="due-date">Due Date:</label>
+                    <input type="date" id="due-date" name="due-date" />
+
+
+                </div>
+                <div class="dialog-buttons">
+                    <button method="dialog" autofocus>Cancel</button>
+                    <input type="submit" id="submit-task" name="submit-task" method="dialog" value="Add Task" />
+                </div>
+            </form>
+        </dialog>
         <ul class="nav nav-pills nav-fill">
             <li class="nav-item">
                 <a class="nav-link " id="all-button" href="#">All</a>
