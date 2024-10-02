@@ -22,13 +22,14 @@
             <form method="dialog">
                 <div class="add-new-task-dialog">
                     <label for="task">Task:</label>
-                    <textarea id="task" name="task" rows="5"></textarea>
+                    <textarea id="task" name="task" rows="5" required></textarea>
 
                     <label for="due-date">Due Date:</label>
-                    <input type="date" id="due-date" name="due-date" />
+                    <input type="date" id="due-date" name="due-date" required/>
 
                     <label for="category">Category:</label>
                     <select id="category" name="category" >
+                        <option value="none">--Pick a Category--</option>
                         <option value="home">Home</option>
                         <option value="work">Work</option>
                         <option value="school">School</option>
