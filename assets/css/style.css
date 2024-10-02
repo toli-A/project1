@@ -3,3 +3,7 @@ header {
     display: flex;
     justify-content: space-between;
 }
+.dark-mode {
+    background-color: #212047;
+    color: #C5c3f8
+}
