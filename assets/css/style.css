@@ -7,3 +7,9 @@ header {
     background-color: #212047;
     color: #C5c3f8
 }
+#allDialog {
+
+    position: absolute;
+    inset: 0px 90%;
+
+}
