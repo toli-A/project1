@@ -44,3 +44,24 @@ addNewTaskButton.addEventListener("click", () => {
 cancelButton.addEventListener("click", () => {
     dialog.close();
 });
+
+// submitting the form
+const form = document.querySelector("form");
+const taskField = document.getElementById("task");
+const dateField = document.getElementById("due-date");
+const categoryField = document.getElementById("category");
+
+function submitForm() {
+    const taskSubmission = {
+        task: taskField.value,
+        date: dateField.value,
+        category: categoryField.value,
+    };
+    readLocalStorage();
+    allTasks.push(taskSubmission);
+    storeLocalStorage();
+    console.log(taskSubmission);
+    console.log(allTasks);
+};
+
+form.addEventListener("submit", submitForm);
