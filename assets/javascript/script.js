@@ -10,6 +10,24 @@ function redirectPage(url) {
     window.location.assign(url);
 };
 
+// local storage
+let allTasks = [];
+
+function readLocalStorage() {
+    const restoredTasks = JSON.parse(localStorage.getItem("allTasks"));
+    if (restoredTasks) {
+        allTasks = restoredTasks;
+        return allTasks;
+    } else {
+        allTasks = [];
+        return allTasks;
+    };
+};
+
+function storeLocalStorage() {
+    localStorage.setItem("allTasks", JSON.stringify(allTasks));
+};
+
 //backButton redirects to the Homepage atm//
 if(backButton) {
     backButton.addEventListener('click', function() {
@@ -70,7 +88,7 @@ cancelButton.addEventListener("click", () => {
 })};
 
 // submitting the form
-const form = document.querySelector("form");
+const form = document.getElementById("form");
 const taskField = document.getElementById("task");
 const dateField = document.getElementById("due-date");
 const categoryField = document.getElementById("category");

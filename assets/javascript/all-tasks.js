@@ -10,7 +10,6 @@ function appendTask(eachTask) {
     const newRemoveCell = document.createElement("td");
     const newRemoveButton = document.createElement("button");
     const currentIndex = allTasks.indexOf(eachTask);
-    console.log(currentIndex);
 
     tableBody.appendChild(newTableRow);
     newTableRow.appendChild(newCategoryCell);
@@ -29,16 +28,41 @@ function appendTask(eachTask) {
         allTasks.splice(currentIndex, 1);
         newTableRow.remove();
         storeLocalStorage();
-        console.log(allTasks);
     });
 };
 
-function renderTasks() {
+function renderAllTasks() {
     readLocalStorage();
-    console.log(allTasks);
     for (const eachTask of allTasks) {
         appendTask(eachTask);
     }
 };
 
-renderTasks();
+// submitting the form
+const allTasksForm = document.getElementById("all-tasks-form");
+const allTasksTaskField = document.getElementById("all-task");
+const allTasksDateField = document.getElementById("all-due-date");
+const allTasksCategoryField = document.getElementById("all-category");
+
+function allTasksSubmitForm() {
+    const taskSubmission = {
+        task: allTasksTaskField.value,
+        date: allTasksDateField.value,
+        category: allTasksCategoryField.value,
+    };
+    readLocalStorage();
+    allTasks.push(taskSubmission);
+    storeLocalStorage();
+    appendTask(taskSubmission);
+};
+
+if (allTasksForm) {
+    allTasksForm.addEventListener("submit", allTasksSubmitForm);
+};
+
+function themeSwitcher () {
+    let element = document.body;
+    element.classList.toggle("dark-mode");
+}
+
+renderAllTasks();

@@ -19,15 +19,12 @@
 
     <main>
         <dialog id="homeDialog">
-            <form method="dialog">
+            <form method="dialog" id="home-form">
                 <div class="add-new-task-dialog">
-                    <label for="task">Task:</label>
-                    <textarea id="task" name="task" rows="5" required></textarea>
-
-                    <label for="due-date">Due Date:</label>
-                    <input type="date" id="due-date" name="due-date" required />
-
-
+                    <label for="home-task">Task:</label>
+                    <textarea id="home-task" name="home-task" rows="5" required></textarea>
+                    <label for="home-due-date">Due Date:</label>
+                    <input type="date" id="home-due-date" name="home-due-date" required />
                 </div>
                 <div class="dialog-buttons">
                     <button method="dialog" autofocus>Cancel</button>
@@ -68,7 +65,6 @@
         <p>©2024 Second Fragment Software</p>
     </footer>
     <script src="./assets/javascript/script.js"></script>
-    <script src="./assets/javascript/logic.js"></script>
     <script src="./assets/javascript/home.js"></script>
 </body>
 </html>

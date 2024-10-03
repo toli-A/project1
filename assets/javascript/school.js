@@ -9,7 +9,6 @@ function appendTask(eachTask) {
     const newRemoveCell = document.createElement("td");
     const newRemoveButton = document.createElement("button");
     const currentIndex = allTasks.indexOf(eachTask);
-    console.log(currentIndex);
 
     tableBody.appendChild(newTableRow);
     newTableRow.appendChild(newTaskCell);
@@ -26,13 +25,11 @@ function appendTask(eachTask) {
         allTasks.splice(currentIndex, 1);
         newTableRow.remove();
         storeLocalStorage();
-        console.log(allTasks);
     });
 };
 
 function renderTasks() {
     readLocalStorage();
-    console.log(allTasks);
     for (const eachTask of allTasks) {
         if (eachTask.category === "school") {
             appendTask(eachTask);
@@ -41,3 +38,24 @@ function renderTasks() {
 };
 
 renderTasks();
+
+// submitting the form
+const schoolForm = document.getElementById("school-form");
+const schoolTaskField = document.getElementById("school-task");
+const schoolDateField = document.getElementById("school-due-date");
+
+function submitSchoolForm() {
+    const taskSubmission = {
+        task: schoolTaskField.value,
+        date: schoolDateField.value,
+        category: "school",
+    };
+    readLocalStorage();
+    allTasks.push(taskSubmission);
+    storeLocalStorage();
+    appendTask(taskSubmission);
+};
+
+if (schoolForm) {
+schoolForm.addEventListener("submit", submitSchoolForm);
+};

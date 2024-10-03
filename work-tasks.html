@@ -18,15 +18,12 @@
 
     <main>
         <dialog id="workDialog">
-            <form method="dialog">
+            <form method="dialog" id="work-form">
                 <div class="add-new-task-dialog">
-                    <label for="task">Task:</label>
-                    <textarea id="task" name="task" rows="5"></textarea>
-
-                    <label for="due-date">Due Date:</label>
-                    <input type="date" id="due-date" name="due-date" />
-
-
+                    <label for="work-task">Task:</label>
+                    <textarea id="work-task" name="work-task" rows="5"></textarea>
+                    <label for="work-due-date">Due Date:</label>
+                    <input type="date" id="work-due-date" name="work-due-date" />
                 </div>
                 <div class="dialog-buttons">
                     <button method="dialog" autofocus>Cancel</button>
@@ -67,7 +64,6 @@
         <p>©2024 Second Fragment Software</p>
     </footer>
     <script src="./assets/javascript/script.js"></script>
-    <script src="./assets/javascript/logic.js"></script>
     <script src="./assets/javascript/work.js"></script>
 </body>
 </html>
