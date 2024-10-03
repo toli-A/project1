@@ -1,15 +1,13 @@
-header {
-    margin: 1rem;
-    display: flex;
-    justify-content: space-between;
+.filler-div {
+    flex: 1 1 auto;
 }
+
 .dark-mode {
     background-color: #212047;
     color: #C5c3f8
 }
-#allDialog {
 
+#allDialog {
     position: absolute;
     inset: 0px 90%;
-
 }

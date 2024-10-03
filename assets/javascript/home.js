@@ -39,6 +39,7 @@ function renderTasks() {
 
 renderTasks();
 
+/*
 // submitting the form
 const homeForm = document.getElementById("home-form");
 const homeTaskField = document.getElementById("home-task");
@@ -55,7 +56,32 @@ function submitHomeForm() {
     storeLocalStorage();
     appendTask(taskSubmission);
 };
+*/
 
-if (homeForm) {
-homeForm.addEventListener("submit", submitHomeForm);
+// submitting the form
+const homeSubmitButton = document.getElementById("submit-home-task");
+const homeModalWindow = document.getElementById("homeModal");
+const homeTaskField = document.getElementById("home-task");
+const homeDateField = document.getElementById("home-due-date");
+
+function submitHomeForm() {
+    if (homeTaskField.value === "" || homeDateField.value === "") {
+        window.alert("Please fill all fields.");
+    } else {
+        const taskSubmission = {
+            task: homeTaskField.value,
+            date: homeDateField.value,
+            category: "home",
+        };
+        readLocalStorage();
+        allTasks.push(taskSubmission);
+        storeLocalStorage();
+        homeTaskField.value = "";
+        homeDateField.value = "";
+        appendTask(taskSubmission);
+    }
+};
+
+if (homeSubmitButton) {
+    homeSubmitButton.addEventListener("click", submitHomeForm);
 };

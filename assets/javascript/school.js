@@ -1,4 +1,4 @@
-// append home tasks
+// append school tasks
 function appendTask(eachTask) {
     const tableBody = document.querySelector("tbody");
     const newTableRow = document.createElement("tr");
@@ -40,22 +40,29 @@ function renderTasks() {
 renderTasks();
 
 // submitting the form
-const schoolForm = document.getElementById("school-form");
+const schoolSubmitButton = document.getElementById("submit-school-task");
+const schoolModalWindow = document.getElementById("schoolModal");
 const schoolTaskField = document.getElementById("school-task");
 const schoolDateField = document.getElementById("school-due-date");
 
-function submitSchoolForm() {
-    const taskSubmission = {
-        task: schoolTaskField.value,
-        date: schoolDateField.value,
-        category: "school",
-    };
-    readLocalStorage();
-    allTasks.push(taskSubmission);
-    storeLocalStorage();
-    appendTask(taskSubmission);
+function submitschoolForm() {
+    if (schoolTaskField.value === "" || schoolDateField.value === "") {
+        window.alert("Please fill all fields.");
+    } else {
+        const taskSubmission = {
+            task: schoolTaskField.value,
+            date: schoolDateField.value,
+            category: "school",
+        };
+        readLocalStorage();
+        allTasks.push(taskSubmission);
+        storeLocalStorage();
+        schoolTaskField.value = "";
+        schoolDateField.value = "";
+        appendTask(taskSubmission);
+    }
 };
 
-if (schoolForm) {
-schoolForm.addEventListener("submit", submitSchoolForm);
+if (schoolSubmitButton) {
+    schoolSubmitButton.addEventListener("click", submitschoolForm);
 };
