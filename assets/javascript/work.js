@@ -40,22 +40,29 @@ function renderTasks() {
 renderTasks();
 
 // submitting the form
-const workForm = document.getElementById("work-form");
+const workSubmitButton = document.getElementById("submit-work-task");
+const workModalWindow = document.getElementById("workModal");
 const workTaskField = document.getElementById("work-task");
 const workDateField = document.getElementById("work-due-date");
 
-function submitWorkForm() {
-    const taskSubmission = {
-        task: workTaskField.value,
-        date: workDateField.value,
-        category: "work",
-    };
-    readLocalStorage();
-    allTasks.push(taskSubmission);
-    storeLocalStorage();
-    appendTask(taskSubmission);
+function submitworkForm() {
+    if (workTaskField.value === "" || workDateField.value === "") {
+        window.alert("Please fill all fields.");
+    } else {
+        const taskSubmission = {
+            task: workTaskField.value,
+            date: workDateField.value,
+            category: "work",
+        };
+        readLocalStorage();
+        allTasks.push(taskSubmission);
+        storeLocalStorage();
+        workTaskField.value = "";
+        workDateField.value = "";
+        appendTask(taskSubmission);
+    }
 };
 
-if (workForm) {
-workForm.addEventListener("submit", submitWorkForm);
+if (workSubmitButton) {
+    workSubmitButton.addEventListener("click", submitworkForm);
 };

@@ -28,89 +28,131 @@ function storeLocalStorage() {
     localStorage.setItem("allTasks", JSON.stringify(allTasks));
 };
 
-//backButton redirects to the Homepage atm//
+// backButtons
 if(backButton) {
     backButton.addEventListener('click', function() {
         redirectPage("./index.html");
-})}
+})
+};
+
 if (allButton) {
     allButton.addEventListener('click', function() {
         redirectPage("./all-tasks.html");
-})}
+})
+};
+
 if(schoolButton) {
     schoolButton.addEventListener('click', function() {
         redirectPage("./school-tasks.html");
-})}
+})
+};
+
 if (homeButton) {
-homeButton.addEventListener ('click', function() {
+    homeButton.addEventListener ('click', function() {
         redirectPage("./home-tasks.html");
-})}
+})
+};
+
 if (workButton) {
-workButton.addEventListener ('click', function() {
+    workButton.addEventListener ('click', function() {
         redirectPage("./work-tasks.html");
-})}
+})
+};
 
 // modal dialog
-const dialog = document.querySelector("dialog");
+/*
+const dialog = document.getElementById("allDialog");
 const addNewTaskButton = document.getElementById("add-new-task-button");
+const myInput = document.getElementById("myInput");
 const cancelButton = document.querySelector("dialog button");
+const addNewAllTask = document.getElementById("addAllTask");
 const addNewHomeTask = document.getElementById("homeTask");
 const addNewWorkTask = document.getElementById("workTask");
 const addNewSchoolTask = document.getElementById("schoolTask");
-const addNewAllTask = document.getElementById("addAllTask");
+
+if (addNewTaskButton) {
+    addNewTaskButton.addEventListener("shown.bs.modal", () => {
+        myInput.focus()
+    })
+};
+
 if (addNewAllTask) {
-    addNewAllTask.addEventListener("click", () => {
-        dialog.showModal();
-    })};
+    addNewAllTask.addEventListener("shown.bs.modal", () => {
+    })
+};
 
 if (addNewSchoolTask) {
     addNewSchoolTask.addEventListener("click", () => {
         dialog.showModal();
-    })};
+    })
+};
 
 if (addNewWorkTask) {
     addNewWorkTask.addEventListener("click", () => {
         dialog.showModal();
-    })};
+    })
+};
 
 if (addNewHomeTask) {
     addNewHomeTask.addEventListener("click", () => {
         dialog.showModal();
-    })};
-if (addNewTaskButton) {
-addNewTaskButton.addEventListener("click", () => {
-    dialog.showModal();
-})};
+    })
+};
 
 if (cancelButton) {
 cancelButton.addEventListener("click", () => {
     dialog.close();
-})};
+    })
+};
+*/
 
 // submitting the form
-const form = document.getElementById("form");
+const submitButton = document.getElementById("submit-task");
+const modalWindow = document.getElementById("exampleModal");
 const taskField = document.getElementById("task");
 const dateField = document.getElementById("due-date");
 const categoryField = document.getElementById("category");
 
 function submitForm() {
-    const taskSubmission = {
-        task: taskField.value,
-        date: dateField.value,
-        category: categoryField.value,
-    };
-    readLocalStorage();
-    allTasks.push(taskSubmission);
-    storeLocalStorage();
-    console.log(taskSubmission);
-    console.log(allTasks);
+    if (taskField.value === "" || dateField.value === "" || categoryField.value === "none") {
+        window.alert("Please fill all fields.");
+    } else {
+        const taskSubmission = {
+            task: taskField.value,
+            date: dateField.value,
+            category: categoryField.value,
+        };
+        readLocalStorage();
+        allTasks.push(taskSubmission);
+        storeLocalStorage();
+        console.log(taskSubmission);
+        console.log(allTasks);
+        taskField.value = "";
+        dateField.value = "";
+        categoryField.value = "none";
+        if (document.title === "Task Tracker | All Tasks") {
+            appendTask(taskSubmission);
+        }
+    }
 };
 
-if (form) {
-form.addEventListener("submit", submitForm);
+if (submitButton) {
+    submitButton.addEventListener("click", submitForm);
 };
 
-function themeSwitcher () {
-    let element = document.body;
-    element.classList.toggle("dark-mode");
-}
+// dark mode
+const darkModeToggle = document.getElementById("dark-mode-toggle");
+const bodyElement = document.querySelector("body");
+const footerText =document.querySelector("footer p");
+const addNewTaskButton = document.getElementById("add-new-task-button");
+
+darkModeToggle.addEventListener("click", () => {
+    const currentMode = darkModeToggle.getAttribute("class");
+    if (currentMode === "off") {
+        bodyElement.setAttribute("class", "text-white bg-dark bg-gradient");
+    footerText.setAttribute("class", "col-10 text-center text-light");
+    addNewTaskButton.setAttribute("class", "btn btn-outline-light");
+    }
+    
+    localStorage.setItem("")
+});
