@@ -99,6 +99,7 @@ const bodyElement = document.querySelector("body");
 const footerText =document.querySelector("footer p");
 const addNewTaskButton = document.getElementById("add-new-task-button");
 
+if (darkModeToggle) {
 darkModeToggle.addEventListener("click", () => {
     localStorage.setItem("darkMode", "off");
     if (localStorage.getItem("darkMode") === "off") {
@@ -112,5 +113,5 @@ darkModeToggle.addEventListener("click", () => {
         bodyElement.setAttribute("class", null);
         footerText.setAttribute("class", "col-10 text-center text-body-secondary");
         addNewTaskButton.setAttribute("class", "btn btn-outline-dark");
-    };
-});
+    }
+})};
