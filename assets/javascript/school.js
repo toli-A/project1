@@ -19,6 +19,7 @@ function appendTask(eachTask) {
 
     newTaskCell.textContent = eachTask.task;
     newDate.value = eachTask.date;
+    newDate.readOnly = true;
     newRemoveButton.textContent = "—";
     newRemoveButton.addEventListener("click", () => {
         readLocalStorage();
