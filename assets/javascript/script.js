@@ -99,6 +99,7 @@ const bodyElement = document.querySelector("body");
 const footerText =document.querySelector("footer p");
 const addNewTaskButton = document.getElementById("add-new-task-button");
 
+if (darkModeToggle) {
 darkModeToggle.addEventListener("click", () => {
     const currentMode = darkModeToggle.getAttribute("darkmode");
     if (currentMode === "off") {
@@ -112,4 +113,4 @@ darkModeToggle.addEventListener("click", () => {
         footerText.setAttribute("class", "col-10 text-center text-body-secondary");
         addNewTaskButton.setAttribute("class", "btn btn-outline-dark");
     }
-});
+})};
