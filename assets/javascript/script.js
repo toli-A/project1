@@ -101,16 +101,22 @@ const addNewTaskButton = document.getElementById("add-new-task-button");
 
 if (darkModeToggle) {
 darkModeToggle.addEventListener("click", () => {
-    const currentMode = darkModeToggle.getAttribute("darkmode");
-    if (currentMode === "off") {
-        darkModeToggle.setAttribute("darkmode", "on");
+    localStorage.setItem("darkMode", "off");
+    if (localStorage.getItem("darkMode") === "off") {
+        localStorage.setItem("darkMode", "on");
         bodyElement.setAttribute("class", "text-white bg-dark bg-gradient");
         footerText.setAttribute("class", "col-10 text-center text-light");
         addNewTaskButton.setAttribute("class", "btn btn-outline-light");
     } else {
+        localStorage.setItem("darkMode", "off");
         darkModeToggle.setAttribute("darkmode", "off");
         bodyElement.setAttribute("class", null);
         footerText.setAttribute("class", "col-10 text-center text-body-secondary");
         addNewTaskButton.setAttribute("class", "btn btn-outline-dark");
+
     }
 })};
+
+    };
+});
+
