@@ -98,20 +98,50 @@ const darkModeToggle = document.getElementById("dark-mode-toggle");
 const bodyElement = document.querySelector("body");
 const footerText =document.querySelector("footer p");
 const addNewTaskButton = document.getElementById("add-new-task-button");
+const tables = document.querySelectorAll("table");
+const tableCaption = document.querySelector("caption");
+const modalText = document.querySelector(".modal");
+
+let darkMode = localStorage.getItem("darkMode");
+
+function darkModeOn() {
+    bodyElement.setAttribute("class", "text-white bg-dark bg-gradient");
+    footerText.setAttribute("class", "col-10 text-center text-light");
+    addNewTaskButton.setAttribute("class", "btn btn-outline-light");
+    modalText.setAttribute("class", "modal text-dark");
+    for (const eachTable of tables) {
+        eachTable.setAttribute("class", "container table table-dark table-striped table-hover");
+    };
+    if (tableCaption) {
+        tableCaption.setAttribute("class", "text-white-50");
+    }
+    localStorage.setItem("darkMode", "on");
+};
+
+function darkModeOff() {
+    bodyElement.setAttribute("class", null);
+    footerText.setAttribute("class", "col-10 text-center text-body-secondary");
+    addNewTaskButton.setAttribute("class", "btn btn-outline-dark");
+    if (tableCaption) {
+        tableCaption.setAttribute("class", null);
+    }
+    localStorage.setItem("darkMode", "off");
+};
+
+if (darkMode === "on") {
+    darkModeOn();
+}
 
 if (darkModeToggle) {
-darkModeToggle.addEventListener("click", () => {
-    localStorage.setItem("darkMode", "off");
-    if (localStorage.getItem("darkMode") === "off") {
-        localStorage.setItem("darkMode", "on");
-        bodyElement.setAttribute("class", "text-white bg-dark bg-gradient");
-        footerText.setAttribute("class", "col-10 text-center text-light");
-        addNewTaskButton.setAttribute("class", "btn btn-outline-light");
-    } else {
-        localStorage.setItem("darkMode", "off");
-        darkModeToggle.setAttribute("darkmode", "off");
-        bodyElement.setAttribute("class", null);
-        footerText.setAttribute("class", "col-10 text-center text-body-secondary");
-        addNewTaskButton.setAttribute("class", "btn btn-outline-dark");
-    }
-})};
+    darkModeToggle.addEventListener("click", () => { 
+        darkMode = localStorage.getItem("darkMode");
+        console.log(darkMode);
+        if (darkMode === "off") {
+            darkModeOn();
+        } else if (darkMode === "on") {
+            darkModeOff();
+        } else {
+            darkModeOn();
+        }
+    });
+};
