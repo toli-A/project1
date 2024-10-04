@@ -59,53 +59,6 @@ if (workButton) {
 })
 };
 
-// modal dialog
-/*
-const dialog = document.getElementById("allDialog");
-const addNewTaskButton = document.getElementById("add-new-task-button");
-const myInput = document.getElementById("myInput");
-const cancelButton = document.querySelector("dialog button");
-const addNewAllTask = document.getElementById("addAllTask");
-const addNewHomeTask = document.getElementById("homeTask");
-const addNewWorkTask = document.getElementById("workTask");
-const addNewSchoolTask = document.getElementById("schoolTask");
-
-if (addNewTaskButton) {
-    addNewTaskButton.addEventListener("shown.bs.modal", () => {
-        myInput.focus()
-    })
-};
-
-if (addNewAllTask) {
-    addNewAllTask.addEventListener("shown.bs.modal", () => {
-    })
-};
-
-if (addNewSchoolTask) {
-    addNewSchoolTask.addEventListener("click", () => {
-        dialog.showModal();
-    })
-};
-
-if (addNewWorkTask) {
-    addNewWorkTask.addEventListener("click", () => {
-        dialog.showModal();
-    })
-};
-
-if (addNewHomeTask) {
-    addNewHomeTask.addEventListener("click", () => {
-        dialog.showModal();
-    })
-};
-
-if (cancelButton) {
-cancelButton.addEventListener("click", () => {
-    dialog.close();
-    })
-};
-*/
-
 // submitting the form
 const submitButton = document.getElementById("submit-task");
 const modalWindow = document.getElementById("exampleModal");
@@ -147,12 +100,16 @@ const footerText =document.querySelector("footer p");
 const addNewTaskButton = document.getElementById("add-new-task-button");
 
 darkModeToggle.addEventListener("click", () => {
-    const currentMode = darkModeToggle.getAttribute("class");
+    const currentMode = darkModeToggle.getAttribute("darkmode");
     if (currentMode === "off") {
+        darkModeToggle.setAttribute("darkmode", "on");
         bodyElement.setAttribute("class", "text-white bg-dark bg-gradient");
-    footerText.setAttribute("class", "col-10 text-center text-light");
-    addNewTaskButton.setAttribute("class", "btn btn-outline-light");
+        footerText.setAttribute("class", "col-10 text-center text-light");
+        addNewTaskButton.setAttribute("class", "btn btn-outline-light");
+    } else {
+        darkModeToggle.setAttribute("darkmode", "off");
+        bodyElement.setAttribute("class", null);
+        footerText.setAttribute("class", "col-10 text-center text-body-secondary");
+        addNewTaskButton.setAttribute("class", "btn btn-outline-dark");
     }
-    
-    localStorage.setItem("")
 });

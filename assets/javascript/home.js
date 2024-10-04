@@ -39,25 +39,6 @@ function renderTasks() {
 
 renderTasks();
 
-/*
-// submitting the form
-const homeForm = document.getElementById("home-form");
-const homeTaskField = document.getElementById("home-task");
-const homeDateField = document.getElementById("home-due-date");
-
-function submitHomeForm() {
-    const taskSubmission = {
-        task: homeTaskField.value,
-        date: homeDateField.value,
-        category: "home",
-    };
-    readLocalStorage();
-    allTasks.push(taskSubmission);
-    storeLocalStorage();
-    appendTask(taskSubmission);
-};
-*/
-
 // submitting the form
 const homeSubmitButton = document.getElementById("submit-home-task");
 const homeModalWindow = document.getElementById("homeModal");
